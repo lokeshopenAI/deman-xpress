@@ -55,7 +55,7 @@ const ContactForm = ({ onContactAdded }) => {
     setIsSubmitting(true);
     
     try {
-      const response = await axios.post('http://localhost:5000/contacts', formData);
+      const response = await axios.post(`${import.meta.env.VITE_API_URL || 'http://localhost:5000'}/contacts`, formData);
       onContactAdded(response.data);
       setFormData({ name: '', email: '', phone: '' });
     } catch (error) {
