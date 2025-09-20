@@ -1,4 +1,19 @@
+<<<<<<< HEAD
 // GET /contacts - Fetch all contacts with pagination
+=======
+require('dotenv').config();
+const express = require('express');
+const cors = require('cors');
+const db = require('./database');
+
+const app = express();
+const PORT = process.env.PORT || 10000;
+
+
+app.use(cors());
+app.use(express.json());
+
+>>>>>>> 2580529ff877f448ee423022497c5bae53ad6a2e
 app.get('/contacts', (req, res) => {
   const page = parseInt(req.query.page) || 1;
   const limit = parseInt(req.query.limit) || 10;
@@ -74,7 +89,16 @@ app.delete('/contacts/:id', (req, res) => {
     }
     
     res.status(204).send();
+<<<<<<< HEAD
   } catch (err) {
     res.status(500).json({ error: err.message });
   }
 });
+=======
+  });
+});
+
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
+});
+>>>>>>> 2580529ff877f448ee423022497c5bae53ad6a2e
