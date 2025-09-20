@@ -8,7 +8,7 @@ const ContactItem = ({ contact, onDelete }) => {
     if (window.confirm(`Are you sure you want to delete ${contact.name}?`)) {
       setIsDeleting(true);
       try {
-        await onDelete(contact.id);
+        await axios.delete(`${import.meta.env.VITE_API_URL || 'http://localhost:5000'}/contacts/${contactId}`);
       } catch (error) {
         console.error('Error deleting contact:', error);
         alert('Failed to delete contact. Please try again.');
