@@ -15,7 +15,7 @@ function App() {
     setIsLoading(true);
     setError(null);
     try {
-      const response = await axios.get(`http://localhost:5000/contacts?page=${page}&limit=10`);
+      const response = await axios.get(`${import.meta.env.VITE_API_URL || 'http://localhost:5000'}/contacts`);
       setContacts(response.data.contacts);
       setPagination(response.data.pagination);
       setCurrentPage(page);
